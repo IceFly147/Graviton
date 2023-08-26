@@ -1,0 +1,31 @@
+{% extends 'main.html'%}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static 'generate.css' %}">{% endblock %}
+{% block content %}
+
+    <div class="dummy-nav"></div>
+    <section>
+        <form method="post" enctype="multipart/form-data" action="setCookie/">
+            {% csrf_token %}
+            <div class="text-input" style="text-align: center;">
+                <h2>We Require A Cookie 🍪</h2>
+                <small>Our service runs on Google Bard, mainly because we dont funds to access chatgpt.So in order for our app to work we need your bard account's __Secure-1PSID cookie. As the name suggest's this value will only be stored on your computer and wont be visible to anyone else.</small>
+                <br>
+                <input style="color: black;" type="text" name="cookie" required>
+            </div>
+            <div class="checkboxes">
+                <div class="form-check">
+                    <input style="color: black;"class="form-check-input" type="checkbox" value="youtubego" name="youtube">
+                    <label class="form-check-label" for="apple">Youtube</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="udemygo" name="udemy">
+                    <label class="form-check-label" for="mango">Udemy</label>
+                </div>
+                
+            </div>
+            <input class="button-40"type="submit" value="Start Learning">
+        </form>
+    </section>
+
+{% endblock %}

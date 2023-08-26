@@ -1,0 +1,97 @@
+{% extends 'main.html'%}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static 'index.css' %}">{% endblock %}
+{% block content %}
+
+
+    <!-- * Navbar -->
+    <section class="hero">
+        <h1>Learnova: AI Roadmaps On Steroids<span style="color: #ee3252ff;">!</span></h1>
+        <svg id="visual" viewBox="0 0 900 600" width="900" height="600" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+
+            <g transform="translate(443.80844746665736 312.9550539040099)">
+                <path id="blob1"
+                    d="M86.6 -140.2C113.9 -134.3 138.8 -114.4 150.1 -88.7C161.5 -63 159.2 -31.5 152.6 -3.8C145.9 23.8 134.9 47.7 123.6 73.5C112.4 99.3 100.9 127.2 80.3 135.9C59.7 144.7 29.8 134.3 0.6 133.3C-28.7 132.3 -57.3 140.6 -73.6 129.3C-89.8 118.1 -93.6 87.2 -107 62.3C-120.3 37.5 -143.1 18.8 -145.5 -1.4C-147.9 -21.5 -129.8 -43 -120.9 -75.5C-112 -108 -112.2 -151.4 -93.6 -162.3C-75 -173.2 -37.5 -151.6 -3.9 -144.8C29.7 -138.1 59.3 -146.1 86.6 -140.2"
+                    fill="none" stroke="#ee3252ff" stroke-width="9">
+                </path>
+            </g>
+            <g transform="translate(452.06840035809034 292.586126477276)">
+                <path id="blob2" style="visibility: hidden;"
+                    d="M85.2 -146.4C102.4 -137.6 102.7 -98.6 123.2 -69.1C143.7 -39.7 184.4 -19.8 184.8 0.2C185.2 20.3 145.4 40.7 125.2 70.5C104.9 100.4 104.2 139.8 86.6 155.2C69 170.5 34.5 161.8 7.4 148.9C-19.7 136.1 -39.3 119.1 -61.3 106.3C-83.2 93.5 -107.4 84.7 -134.8 67.7C-162.1 50.7 -192.5 25.3 -188.6 2.3C-184.8 -20.8 -146.5 -41.7 -118.8 -58C-91 -74.3 -73.8 -86.1 -55.7 -94.4C-37.7 -102.7 -18.8 -107.6 7.6 -120.8C34 -133.9 68 -155.3 85.2 -146.4"
+                    fill="none" stroke="#ee3252ff" stroke-width="9">
+                </path>
+            </g>
+            <g transform="translate(430.5974762244 281.53217130711863)">
+                <path id="blob3" style="visibility: hidden;"
+                    d="M96.2 -160.1C123 -151.1 142.1 -122 157.1 -92C172.1 -62 183 -31 181.6 -0.8C180.1 29.3 166.3 58.7 143.3 74.9C120.4 91.1 88.3 94.3 62.9 117.1C37.5 140 18.8 182.5 -7.6 195.7C-34 208.9 -68 192.8 -93.4 169.9C-118.8 147.1 -135.6 117.6 -140.9 88.1C-146.3 58.7 -140.1 29.3 -131.2 5.2C-122.2 -19 -110.5 -38 -102.9 -63.5C-95.3 -89.1 -91.9 -121.2 -75.5 -136.2C-59 -151.2 -29.5 -149.1 2.6 -153.6C34.7 -158 69.3 -169.1 96.2 -160.1"
+                    fill="none" stroke="#ee3252ff" stroke-width="9"></path>
+            </g>
+            <g transform="translate(471.48773142852275 311.4298138238591)">
+                <path id="blob4" style="visibility: hidden;"
+                    d="M69.2 -131.7C91.5 -107.1 112.4 -92 119.5 -71.7C126.6 -51.3 119.8 -25.7 116.2 -2.1C112.6 21.5 112.1 43 111.4 74.3C110.6 105.6 109.6 146.8 91 159.5C72.3 172.3 36.2 156.6 7.8 143.2C-20.7 129.8 -41.3 118.6 -64 108.2C-86.7 97.8 -111.3 88.1 -132.3 70.2C-153.3 52.3 -170.7 26.2 -164.2 3.7C-157.8 -18.8 -127.6 -37.5 -105.8 -54C-84 -70.4 -70.5 -84.6 -54.2 -112.7C-38 -140.8 -19 -182.9 2.2 -186.8C23.5 -190.7 47 -156.4 69.2 -131.7"
+                    fill="none" stroke="#f02d72" stroke-width="9"></path>
+            </g>
+            <g transform="translate(471.1878416076887 258.68573572676485)">
+                <path id="blob5" style="visibility: hidden;"
+                    d="M70.4 -110.9C96.1 -107 125.1 -98 133.9 -78.7C142.8 -59.3 131.4 -29.7 123.9 -4.3C116.4 21 112.7 42 105.8 64.7C98.9 87.3 88.7 111.6 70.5 138.6C52.3 165.6 26.2 195.3 -3.5 201.4C-33.2 207.4 -66.3 189.9 -84.2 162.7C-102.1 135.6 -104.8 98.8 -119.5 70.1C-134.3 41.3 -161.1 20.7 -172.8 -6.7C-184.5 -34.2 -181 -68.3 -161.8 -89.3C-142.5 -110.2 -107.5 -117.9 -77.9 -119.6C-48.3 -121.2 -24.2 -116.9 -0.9 -115.3C22.3 -113.7 44.7 -114.9 70.4 -110.9"
+                    fill="none" stroke="#ee3252ff" stroke-width="9"></path>
+            </g>
+        </svg>
+        <script>
+            const tween = KUTE.allTo(
+                '#blob1',
+                { path: ['#blob4', '#blob3', '#blob4', '#blob5'] },
+                { repeat: 999, duration: 3000, yoyo: true }
+            );
+            tween.start();
+        </script>
+    </section>
+    <section class="workings">
+        <h2>What Is Learnova? </h2>
+        <p>"Embark on a transformative journey with Learnova's advanced AI-driven platform. We curate personalized pathways, integrating top-notch courses from reputable platforms, to suit your unique ambitions. Say goodbye to aimless browsing; our tailored approach ensures efficient learning, empowering you to succeed. Join our community of passionate learners and unlock a world of opportunities."</p>
+        <!-- <div class="card-container">
+            <span>
+                <h3>The user Enters A skill They want to Learn</h3>
+            </span>
+            <span>
+                <h3>The user Enters A skill They want to Learn</h3>
+            </span>
+            <span>
+                <h3>The user Enters A skill They want to Learn</h3>
+            </span>
+        </div> -->
+    </section>
+    <section id="contact">
+        <div class="contact-text">
+            <h2>Contact Us! <strike>(Please dont)</strike></h2>
+            <!-- <h5>My Socials</h5>
+            <div class="socials"><a href="https://discord.com/channels/@me/960435802398142484" target="_blank"><i
+                        class="fab fa-discord fa-2x"></i></a>
+                <a href="https://www.reddit.com/user/Graphicdesignmaniac" target="_blank"><i
+                        class="fab fa-reddit fa-2x"></i></a>
+                <a href="https://twitter.com/ShavenWickrama1" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="https://www.linkedin.com/in/shaven-wickramanayaka-022683236/" target="_blank"><i
+                        class="fab fa-linkedin fa-2x"></i></a>
+                <a href="https://github.com/IceFly147" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+            </div> -->
+        </div>
+        <div class="form-container">
+            <form name="contact" id="contact-form">
+                <input type="hidden" name="contact_number">
+                <input type="text" class="form-control form-control-lg" placeholder="Name" name="user_name">
+                <input type="email" class="form-control mt-3" placeholder="Email" name="user_email">
+                <div class="mb-3 mt-3">
+
+                    <textarea class="form-control" rows="5" id="comment" name="message"
+                        placeholder="Message"></textarea>
+
+                </div>
+                <!-- HTML !-->
+                <button type="submit" value="send" class="button-40" role="button">Submit</button>
+            </form>
+        </div>
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro&family=Source+Code+Pro:wght@300&display=swap");
+nav {
+  height: 70px;
+  color: aliceblue !important;
+  background-color: rgba(18, 18, 18, 0.5764705882);
+  border-radius: 0 0 30px 30px;
+}
+
+.nav-toggler-icon {
+  color: aliceblue !important;
+  outline: none;
+}
+
+.navbar-brand {
+  font-family: "Maven Pro";
+  color: aliceblue !important;
+  padding: 10px !important;
+}
+
+.nav-link,
+.navbar-brand {
+  color: rgb(232, 232, 232) !important;
+  transition: 1s;
+}
+
+.nav-link:hover,
+.navbar-brand:hover {
+  outline: solid 1px #ffffff;
+  color: #ffffff !important;
+}
+
+body {
+  background-color: #262622;
+}/*# sourceMappingURL=main.css.map */

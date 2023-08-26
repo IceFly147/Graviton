@@ -1,0 +1,32 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block styles %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <title>Learnova || Ascensus Ad Astra</title>
+    <link rel="stylesheet" href="{% static 'reset.css'%}">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/kute.js/2.1.2/kute.min.js"
+        integrity="sha512-uTe+wUbchHcZHwvZwpVt4ve3FdUJPse9iC56mh6pZkxHccXx2vaSYyjlWV/Mv0NTcvGYkGZvCi1D/KZJ7qS2uQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body>
+    {% include 'navbar.html'%}
+    {% block content %}
+    {% endblock %}
+    {% include 'footer.html'%}
+</body>
+
+</html>

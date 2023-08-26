@@ -1,0 +1,163 @@
+.hero {
+  background-color: #262622;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Maven Pro";
+  flex-wrap: wrap;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 3em;
+  color: aliceblue;
+  width: 80vw;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.workings {
+  text-align: center;
+  height: 100vh;
+  background-color: #262622;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.workings h2 {
+  color: aliceblue;
+  padding: 2%;
+  font-size: 3em;
+  text-decoration: underline;
+  text-underline-offset: 20px;
+  font-family: "Maven Pro";
+}
+.workings p {
+  margin-top: 6vh;
+  color: rgb(132, 132, 132);
+  padding: 0 20%;
+  font-size: 2rem;
+}
+.workings p br {
+  font-size: 30px;
+}
+.workings .card-container {
+  margin-top: 6vh;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  color: aliceblue;
+  /*  span{
+       background-color: #1f1f1e;
+       margin: 1vw;
+       font-size: 2px;
+       font-weight: normal;
+       flex-grow: 1;
+       padding: 2em;
+       h3{
+           font-size: 1rem;
+           padding: 3vw;
+           font-family: 'Maven Pro';
+       }
+   } */
+}
+
+#contact {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #262622;
+  color: aliceblue;
+  flex-direction: row;
+}
+#contact .contact-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  padding: 2vw;
+  border: 2vw;
+  margin: 2vw;
+  text-align: start;
+  border-radius: 20px;
+}
+#contact .contact-text h2 {
+  font-size: 3rem;
+}
+#contact .form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  width: 30vw;
+}
+#contact .form-container form {
+  width: 30vw;
+}
+
+.button-40 {
+  font-family: "Maven Pro";
+  text-align: center;
+  background-color: #3a3a34;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+  color: rgba(236, 236, 236, 0.9254901961);
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  padding: 0.75rem 1.2rem;
+  text-align: center;
+  -webkit-text-decoration: none #6B7280 solid;
+          text-decoration: none #6B7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+}
+
+.button-40:hover {
+  background-color: #121212;
+}
+
+.button-40:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .button-40 {
+    padding: 0.75rem 1.5rem;
+  }
+}
+footer {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 7vh;
+  background-color: #121212;
+  color: aliceblue;
+  border-radius: 30px 30px 0 0;
+}
+footer small {
+  font-family: "Maven Pro";
+}
+
+body {
+  background-color: #262622 !important;
+}/*# sourceMappingURL=index.css.map */

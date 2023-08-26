@@ -1,0 +1,46 @@
+{% extends 'main.html'%}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static 'result.css' %}">{% endblock %}
+{% block content %}
+
+    <div class="dummy-nav"></div>
+    <div class="header-text"><h1>Roadmap On How To Learn <span>{{title}}</span></h1></div>
+
+    <div class="main-container">
+        <div class="block-container">
+            {% for item in steps%}
+                <div class="step-text-container" style="height: 30vh !important;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20vw;
+                ">
+                    <div><h5 style="color: aliceblue;">Step: {{item.0}} </h5></div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="block-container">
+            {% for item in yt_data%}
+                <div class="step-container">
+                    <div>
+                        <a href="{{item.0}}" target="_blank"><img src="{{item.2}}" alt="" ></a>
+                        <div class="text-wrapper"><h5 class="decription-text">{{item.1}}</h5></div>
+                        
+                    </div>
+                </div>
+            {% endfor %}
+       </div>
+
+       <div class="block-container">
+            {% for item in ud_data%}
+                <div class="step-container">
+                    <div>
+                        <a href="{{item.0}}" target="_blank"><img src="{{item.1}}" alt="" ></a>
+                        <div class="text-wrapper"><h5 class="decription-text">{{item.2}}</h5></div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

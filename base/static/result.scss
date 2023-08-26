@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&family=Source+Code+Pro:wght@400&display=swap');
+.dummy-nav{
+    height: 9vh;
+}
+body{
+    background-color: #262622 !important;
+}   
+
+span{
+    color: #ee3252ff;
+}
+.header-text{
+    display: flex;
+    font-family: 'Maven Pro';
+    justify-content: center;
+    align-items: center;
+    padding: 2vh;
+    color: aliceblue;
+}
+.main-container{
+    display: flex;
+    align-items: start;
+    flex-direction: row;
+    justify-content: center;
+}
+.block-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2vw;
+    margin-top: 0 !important;
+    
+}
+
+.step-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30vh !important;
+    h2{
+        color: aliceblue;
+        font-family: 'Source Code Pro';
+    }
+    img{
+        width: 20vw;
+        border-radius: 20px;
+    }
+    h5{
+        font-family: 'Maven Pro';
+        width: 20vw;
+        color: aliceblue;
+    }
+}
+.text-wrapper{
+    height: 5vh;
+    margin: 1vh;
+}
+.description-text{
+    font-size: 1vw;
+}
