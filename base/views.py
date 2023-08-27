@@ -18,7 +18,6 @@ def scrapeSite(path,cookie):
     # Set your input text
     input_text = f'Generate a list to learn {path}. Each list item should start with a number. There should be at more 20 list items. Do not create sub lists under each list item, instead add them to the main list. Each list item should be less than 6 words and should start with the word "how to learn". include the word {path} in each list item. Each step should include a quantative skill that can be developed.Do not mention hours required for each list item'
     # Send an API request and get a respons
-    
     bard_output = bard.get_answer(input_text)['content']
     print(str(bard_output))
     bard_output = bard_output.replace("*", "")
@@ -42,7 +41,7 @@ def trim_string(s: str, max_words: int) -> str:
         return s
 
 # Example usage
-def searchyt(prompt, data):
+def searchyt(request,prompt, data):
     youtubeurl = []
     youtubetitle = []
     youtubethumbnail = []
@@ -58,9 +57,12 @@ def searchyt(prompt, data):
         youtubeurl.append(f"https://youtu.be/{video_id}")
         youtubetitle.append(video_title)
         youtubethumbnail.append(video_thumbnail)
-    return youtubeurl,youtubetitle,youtubethumbnail
+    request.session['yturl'] = youtubeurl
+    request.session['yttitle'] = youtubetitle
+    request.session['ytthumbnail'] = youtubethumbnail
+    # ? return youtubeurl,youtubetitle,youtubethumbnail
 
-def searchudemy(prompt,data):
+def searchudemy(request,prompt,data):
     udemyurl = []
     udemytitle = []
     udemythumbnail = []
@@ -75,10 +77,12 @@ def searchudemy(prompt,data):
         thumbnail = course['image_480x270']
         url = "https://www.udemy.com"+ url
         udemyurl.append(url)
-        udemytitle.append(title)
         udemythumbnail.append(thumbnail)
-
-    return udemyurl,udemythumbnail,udemytitle
+        udemytitle.append(title)
+    request.session['udurl'] = url
+    request.session['udtitle'] = title
+    request.session['udthumbnail'] = thumbnail
+    # ? return udemyurl,udemythumbnail,udemytitle
 
 def about(request):
     return render(request,'about.html')
@@ -90,7 +94,6 @@ def generate(request):
     return render(request, 'generate.html')
 
 def result(request):
-    loopnum=0
     data = []
     yttitle  = []
     ytthumbnail = [] 
@@ -106,13 +109,12 @@ def result(request):
         udemy = request.POST.get('udemy')
     data = scrapeSite(prompt,cookie_value)
     if youtube == "youtubego":
-        yturl,yttitle, ytthumbnail = searchyt(prompt, data)
+        searchyt(request,prompt, data)
     if udemy == "udemygo":
-         udurl,udtitle,udthumbnail = searchudemy(prompt,data)
-    ud_data= zip(udurl,udtitle,udthumbnail)
-    yt_data= zip(yturl,yttitle,ytthumbnail)
+        searchudemy(request,prompt,data)
+    ud_data= zip(request.session.get('udurl'),request.session.get('udtitle'),request.session.get('udthumbnail'))
+    yt_data= zip(request.session.get('yturl'),request.session.get('yttitle'),request.session.get('ytthumbnail'))
     roadmap_data = zip(data)
-    loopnum = len(data)
     context = {
         'ud_data': ud_data,
         'yt_data': yt_data,
@@ -120,6 +122,7 @@ def result(request):
         'title': prompt,
     }
     return render(request, 'result.html', context)
+
 def stuff(request):
     return render(request, 'result.html')
 
