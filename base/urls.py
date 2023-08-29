@@ -7,5 +7,6 @@ urlpatterns = [
     path('generate/',views.generate,name="generate"),
     path('roadmap/',views.result,name="check"),
     path('dev/',views.stuff),
+    path('cookie/', views.setCookie, name="cookie")
  
 ]

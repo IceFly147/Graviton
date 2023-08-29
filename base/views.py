@@ -1,6 +1,4 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from time import sleep
 import json
 import googleapiclient.discovery
@@ -13,7 +11,7 @@ from youtubesearchpython import VideosSearch
 def scrapeSite(path,cookie):
     steps = []
     # Replace XXXX with the values you get from __Secure-1PSID
-    token = 'aQhxb05fALonGMbKnV-12mEGW0fKoVkt48v7Uk-jzDyAD5U2c7bgaxZdL1w5sPiOy6_-_w.'
+    token = cookie
     bard = Bard(token=token)
     # Set your input text
     input_text = f'Generate a list to learn {path}. Each list item should start with a number. There should be at more 20 list items. Do not create sub lists under each list item, instead add them to the main list. Each list item should be less than 6 words and should start with the word "how to learn". include the word {path} in each list item. Each step should include a quantative skill that can be developed.Do not mention hours required for each list item'
@@ -79,9 +77,9 @@ def searchudemy(request,prompt,data):
         udemyurl.append(url)
         udemythumbnail.append(thumbnail)
         udemytitle.append(title)
-    request.session['udurl'] = url
-    request.session['udtitle'] = title
-    request.session['udthumbnail'] = thumbnail
+    request.session['udurl'] = udemyurl
+    request.session['udtitle'] = udemytitle
+    request.session['udthumbnail'] = udemythumbnail
     # ? return udemyurl,udemythumbnail,udemytitle
 
 def about(request):
@@ -91,18 +89,15 @@ def home(request):
     return render(request, 'index.html')
 
 def generate(request):
-    return render(request, 'generate.html')
+    if request.COOKIES.get('bardKey') == True:
+        return render(request, 'generate.html')
+    else:
+        return render(request, 'cookie.html')
+    
 
 def result(request):
-    data = []
-    yttitle  = []
-    ytthumbnail = [] 
-    yturl = []
-    udurl = []
-    udtitle = []
-    udthumbnail = []
-    cookie_value = request.COOKIES.get('key')
-    
+    prompt = "How to learn"
+    cookie_value = request.COOKIES.get('bardKey')
     if request.method == 'POST':
         prompt = request.POST['pathway']
         youtube = request.POST.get('youtube')
@@ -125,4 +120,14 @@ def result(request):
 
 def stuff(request):
     return render(request, 'result.html')
+
+def setCookie(request):
+    cookie = "Noot there"
+    if request.method == 'POST':
+        cookie = request.POST['cookie']
+    response = render(request, 'generate.html')
+    response.set_cookie('bardKey', cookie,max_age=10518912 )
+    return response
+
+    
 
