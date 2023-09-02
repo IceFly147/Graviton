@@ -1,6 +1,17 @@
 {% extends 'main.html'%}
 {% load static %}
 {% block styles %}<link rel="stylesheet" href="{% static 'generate.css' %}">{% endblock %}
+{% block javascript%}
+<script defer>
+    var btn = document.getElementById('btn')
+    var input = document.getElementById('input')
+    function click(){
+        if (input.value !== '') {
+            btn.disabled = true
+        }
+    }
+</script>
+{% endblock%}
 {% block content %}
 
     <div class="dummy-nav"></div>
@@ -8,7 +19,7 @@
         <form method="post" enctype="multipart/form-data" action="/roadmap/">
             {% csrf_token %}
             <div class="text-input">
-                <h2>I Want To Learn <input style="color: black;" type="text" name="pathway" required></h2>
+                <h2>I Want To Learn <input style="color: black;" type="text" name="pathway" required id="input"></h2>
             </div>
             <div class="checkboxes">
                 <div class="form-check">
@@ -21,7 +32,7 @@
                 </div>
                 
             </div>
-            <input class="button-40"type="submit" value="Start Learning">
+            <input class="button-40"type="submit" value="Start Learning" onclick="click()" id="btn">
         </form>
     </section>
 
