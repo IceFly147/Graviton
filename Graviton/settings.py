@@ -53,7 +53,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Graviton.urls'
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -120,6 +120,8 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR / 'productionfiles'
 
 STATIC_URL = 'static/'
+
+
 
 
 # Default primary key field type
