@@ -1,1 +1,1 @@
-web: gunicorn Graviton.wsgi
+web: gunicorn Graviton.wsgi --timeout 0 
