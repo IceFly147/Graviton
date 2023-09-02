@@ -6,6 +6,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('generate/',views.generate,name="generate"),
     path('roadmap/',views.result,name="check"),
+    #Made by IceFly147
     path('dev/',views.stuff),
     path('cookie/', views.setCookie, name="cookie")
  

