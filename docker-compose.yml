@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   django:
-    image: Learnova:0.1
+    image: learnova:0.1
     build: .
     ports:
       - "8000:8000"
