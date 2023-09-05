@@ -93,7 +93,7 @@ def home(request):
     return render(request, 'index.html')
 
 def generate(request):
-    if request.COOKIES.get('bardKey') == True:
+    if request.COOKIES.get('bardKey'):
         return render(request, 'generate.html')
     else:
         return render(request, 'cookie.html')
@@ -110,8 +110,14 @@ def result(request):
         errorhandling()
     data = scrapeSite(prompt,cookie_value)
     if youtube == "youtubego":
+        request.session['yturl'] = ''
+        request.session['yttitle'] = ''
+        request.session['ytthumbnail'] = ''
         searchyt(request,prompt, data)
     if udemy == "udemygo":
+        request.session['udurl'] = ''
+        request.session['udtitle'] = ''
+        request.session['udthumbnail'] = ''
         searchudemy(request,prompt,data)
     ud_data= zip(request.session.get('udurl'),request.session.get('udtitle'),request.session.get('udthumbnail'))
     yt_data= zip(request.session.get('yturl'),request.session.get('yttitle'),request.session.get('ytthumbnail'))
@@ -132,7 +138,7 @@ def setCookie(request):
     if request.method == 'POST':
         cookie = request.POST['cookie']
     response = render(request, 'generate.html')
-    response.set_cookie('bardKey', cookie,max_age=10518912 )
+    response.set_cookie('bardKey', cookie,max_age=432000 )
     return response
 
     
