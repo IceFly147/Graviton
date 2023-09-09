@@ -6,3 +6,7 @@ services:
     build: .
     ports:
       - "8000:8000"
+      
+  web_migrations:
+    build: .
+    command: ./manage.py migrate
