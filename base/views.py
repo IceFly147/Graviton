@@ -8,6 +8,15 @@ import os
 from tempfile import TemporaryFile
 from pyudemy import Udemy
 from youtubesearchpython import VideosSearch
+from django.core.mail import send_mail
+from django.conf import settings
+
+def sendEmail(name, message, recipients,subject):
+	send_mail(
+    		subject=f"Message Regarding {subject} From {name}",
+    		message=message,
+    		from_email=settings.EMAIL_HOST_USER,
+    		recipient_list=['byteforce0000.dev@gmail.com'])
 
 def scrapeSite(path,cookie):
     steps = []
@@ -90,6 +99,12 @@ def about(request):
     return render(request,'about.html')
 
 def home(request):
+    if request.method == 'POST':
+        name = request.POST['user_name']
+        email = request.POST.get('user_email')
+        message = request.POST.get('message')
+        subject = request.POST.get('user_subject')
+        sendEmail(name,message,email,subject)
     return render(request, 'index.html')
 
 def generate(request):
@@ -108,7 +123,14 @@ def result(request):
         udemy = request.POST.get('udemy')
     if prompt == 'errorcode147thebombhasdropped':
         errorhandling()
-    data = scrapeSite(prompt,cookie_value)
+    try:
+        data = scrapeSite(prompt,cookie_value)
+    except:
+        context = {
+            'message': "Your bard api token has expired or isn't valid, please enter a new one using the the video as a guide."
+        }
+        return render(request, 'cookie.html', context)
+    
     if youtube == "youtubego":
         request.session['yturl'] = ''
         request.session['yttitle'] = ''

@@ -9,8 +9,9 @@
             {% csrf_token %}
             <div class="text-input" style="text-align: center;">
                 <h2>We Require A Cookie 🍪</h2>
-                <p>Our service runs on Google Bard, mainly because we currently do not have the funds to access ChatGPT-3. So in order for our app to work we need your bard account's __Secure-1PSID cookie. As the name suggest's this value will only be stored on your computer and wont be visible to anyone else.</p>
+                <p>Our service runs on Google Bard, mainly because don't have the funds to access ChatGPT-3. So in order for our app to work we need your bard account's __Secure-1PSID cookie. As the name suggest's this value will only be stored on your computer and wont be visible to anyone else.</p>
                 <br>
+                <p>{{ message }}</p>
                 <input style="color: black;" type="text" name="cookie" required>
                 <div>
                     <video width="800vw" autoplay controls>

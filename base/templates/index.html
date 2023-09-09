@@ -77,9 +77,11 @@
             </div> -->
         </div>
         <div class="form-container">
-            <form name="contact" id="contact-form">
+            <form name="contact" id="contact-form" method="post" action="/">
+                {% csrf_token %}
                 <input type="hidden" name="contact_number">
                 <input type="text" class="form-control form-control-lg" placeholder="Name" name="user_name">
+                <input type="text" class="form-control mt-3" placeholder="Subject" name="user_subject">
                 <input type="email" class="form-control mt-3" placeholder="Email" name="user_email">
                 <div class="mb-3 mt-3">
 
@@ -88,7 +90,7 @@
 
                 </div>
                 <!-- HTML !-->
-                <button type="submit" value="send" class="button-40" role="button">Submit</button>
+                <button type="submit" value="sendMessage" class="button-40" role="button">Submit</button>
             </form>
         </div>
     </section>
