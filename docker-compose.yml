@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  django:
+    image: learnova:0.1
+    build: .
+    ports:
+      - "8000:8000"
+      
+  web_migrations:
+    build: .
+    command: ./manage.py migrate
