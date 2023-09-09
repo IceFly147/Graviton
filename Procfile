@@ -1,1 +1,1 @@
-web: gunicorn Graviton.wsgi --timeout 0 --preload
+web: gunicorn Graviton.wsgi --timeout 9000 --preload
