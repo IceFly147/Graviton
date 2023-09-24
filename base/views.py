@@ -155,6 +155,8 @@ def result(request):
 def stuff(request):
     return render(request, 'result.html')
 
+def userCookie(request):
+    return render(request, 'cookie.html')
 def setCookie(request):
     cookie = "Noot there"
     if request.method == 'POST':
